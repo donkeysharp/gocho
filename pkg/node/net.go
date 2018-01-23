@@ -75,7 +75,7 @@ func listenForNodes(nodeList *list.List, conf *config.Config) {
 
 func announcedNodeHandler(nodeInfo *NodeInfo, nodeList *list.List, conf *config.Config) {
 	nodeMutex.Lock()
-	addNode(nodeInfo, nodeList, conf)
+	updateNodeList(nodeInfo, nodeList, conf)
 	nodeMutex.Unlock()
 
 	fmt.Println("Printing nodes")
@@ -87,7 +87,7 @@ func announcedNodeHandler(nodeInfo *NodeInfo, nodeList *list.List, conf *config.
 	fmt.Print("]\n\n")
 }
 
-func addNode(nodeInfo *NodeInfo, nodeList *list.List, conf *config.Config) {
+func updateNodeList(nodeInfo *NodeInfo, nodeList *list.List, conf *config.Config) {
 	nodeExists := false
 	for el := nodeList.Front(); el != nil; el = el.Next() {
 		tmp := el.Value.(*NodeInfo)
