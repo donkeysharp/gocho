@@ -6,6 +6,7 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 	"io/ioutil"
 	"os"
+	"os/user"
 	"strings"
 )
 
@@ -47,6 +48,10 @@ func getDefaultConfig() (*Config, error) {
 	defaultWebPort := "5555"
 	defaultLocalPort := "1337"
 	defaultNodeId := randomdata.SillyName()
+	currentUser, err := user.Current()
+	if err == nil {
+		defaultNodeId = currentUser.Username
+	}
 
 	config := &Config{
 		ShareDirectory: defaultDirectory,
