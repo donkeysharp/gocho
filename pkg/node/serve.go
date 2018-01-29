@@ -1,6 +1,7 @@
 package node
 
 import (
+	"container/list"
 	"fmt"
 	"github.com/donkeysharp/gocho/pkg/config"
 	"net/http"
@@ -8,21 +9,24 @@ import (
 )
 
 func fileServe(conf *config.Config) {
-	http.Handle("/", http.FileServer(http.Dir(conf.ShareDirectory)))
-	http.ListenAndServe(fmt.Sprintf("0.0.0.0:%s", conf.WebPort), nil)
+	fileMux := http.NewServeMux()
+	fileMux.Handle("/", http.FileServer(http.Dir(conf.ShareDirectory)))
+	http.ListenAndServe(fmt.Sprintf("0.0.0.0:%s", conf.WebPort), fileMux)
 }
 
-func startAnnouncer(conf *config.Config) {
+func startAnnouncer(conf *config.Config, nodeList *list.List) {
 	announcer := &Announcer{
 		config: conf,
 	}
-	announcer.Start()
+	announcer.Start(nodeList)
 }
 
 func Serve(conf *config.Config) {
-	startAnnouncer(conf)
+	nodeList := list.New()
 
+	go startAnnouncer(conf, nodeList)
 	go fileServe(conf)
+	go dashboardServe(conf, nodeList)
 
 	for {
 		time.Sleep(time.Minute * 15)

@@ -3,9 +3,7 @@ package node
 import (
 	"container/list"
 	"fmt"
-	"github.com/donkeysharp/gocho/pkg/config"
 	"net"
-	"strings"
 	"sync"
 	"time"
 )
@@ -40,7 +38,7 @@ func announceNode(nodeInfo *NodeInfo) {
 	}
 }
 
-func listenForNodes(nodeList *list.List, conf *config.Config) {
+func listenForNodes(nodeList *list.List) {
 	address, err := net.ResolveUDPAddr("udp", MULTICAST_ADDRESS)
 	if err != nil {
 		return
@@ -69,13 +67,13 @@ func listenForNodes(nodeList *list.List, conf *config.Config) {
 			continue
 		}
 
-		go announcedNodeHandler(nodeInfo, nodeList, conf)
+		go announcedNodeHandler(nodeInfo, nodeList)
 	}
 }
 
-func announcedNodeHandler(nodeInfo *NodeInfo, nodeList *list.List, conf *config.Config) {
+func announcedNodeHandler(nodeInfo *NodeInfo, nodeList *list.List) {
 	nodeMutex.Lock()
-	updateNodeList(nodeInfo, nodeList, conf)
+	updateNodeList(nodeInfo, nodeList)
 	nodeMutex.Unlock()
 
 	fmt.Println("Printing nodes")
@@ -87,7 +85,7 @@ func announcedNodeHandler(nodeInfo *NodeInfo, nodeList *list.List, conf *config.
 	fmt.Print("]\n\n")
 }
 
-func updateNodeList(nodeInfo *NodeInfo, nodeList *list.List, conf *config.Config) {
+func updateNodeList(nodeInfo *NodeInfo, nodeList *list.List) {
 	nodeExists := false
 	for el := nodeList.Front(); el != nil; el = el.Next() {
 		tmp := el.Value.(*NodeInfo)
@@ -110,7 +108,7 @@ func updateNodeList(nodeInfo *NodeInfo, nodeList *list.List, conf *config.Config
 		}
 	}
 
-	if !nodeExists && !isSelfNode(nodeInfo, conf) {
+	if !nodeExists {
 		fmt.Printf("Adding new node! %p %s\n", nodeInfo, nodeInfo.Id)
 		nodeInfo.LastMulticast = time.Now().Unix()
 		nodeList.PushBack(nodeInfo)
@@ -120,8 +118,4 @@ func updateNodeList(nodeInfo *NodeInfo, nodeList *list.List, conf *config.Config
 func isNodeExpired(nodeInfo *NodeInfo, timeout int) bool {
 	diff := time.Now().Unix() - nodeInfo.LastMulticast
 	return diff > int64(timeout)
-}
-
-func isSelfNode(nodeInfo *NodeInfo, conf *config.Config) bool {
-	return strings.Compare(nodeInfo.Id, conf.NodeId) == 0
 }

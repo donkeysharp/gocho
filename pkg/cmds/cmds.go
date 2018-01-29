@@ -19,6 +19,7 @@ func ConfigureAction(c *cli.Context) error {
 func StartAction(c *cli.Context) error {
 	fmt.Println("Starting Gocho Node...")
 	conf, err := config.LoadConfig()
+	conf.Debug = c.Bool("debug")
 	if err != nil {
 		return cli.NewExitError(err, 1)
 	}
@@ -36,7 +37,7 @@ func StartAction(c *cli.Context) error {
 func New() *cli.App {
 	app := cli.NewApp()
 	app.Name = info.APP_NAME
-	app.Usage = "Self-discovery local area network file sharing"
+	app.Usage = "Auto-discovery local area network file sharing"
 	app.Version = info.VERSION
 	app.Authors = []cli.Author{
 		cli.Author{
@@ -47,8 +48,14 @@ func New() *cli.App {
 
 	app.Commands = []cli.Command{
 		{
-			Name:   "start",
-			Usage:  "Start Gocho node",
+			Name:  "start",
+			Usage: "Start Gocho node",
+			Flags: []cli.Flag{
+				cli.BoolFlag{
+					Name:  "debug",
+					Usage: "Start gocho in debug mode",
+				},
+			},
 			Action: StartAction,
 		},
 		{

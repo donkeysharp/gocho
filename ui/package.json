@@ -1,0 +1,17 @@
+{
+  "name": "ui",
+  "version": "0.1.0",
+  "private": false,
+  "proxy": "http://localhost:1337",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && rm build/static/js/*.map && rm build/static/css/*.map && rm build/service-worker.js && rm build/asset-manifest.json",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
