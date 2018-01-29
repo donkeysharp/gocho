@@ -7,11 +7,12 @@ import (
 )
 
 type Config struct {
-	NodeId         string `yaml:"NodeId"`
-	WebPort        string `yaml:"WebPort"`
-	LocalPort      string `yaml:"LocalPort"`
-	ShareDirectory string `yaml:"ShareDirectory"`
-	ConfigFile     string `yaml:"-"`
+	NodeId         string `yaml:"NodeId" json:"nodeId"`
+	WebPort        string `yaml:"WebPort" json:"webPort"`
+	LocalPort      string `yaml:"LocalPort" json:"localPort"`
+	ShareDirectory string `yaml:"ShareDirectory" json:"sharedDirectory"`
+	ConfigFile     string `yaml:"-" json:"-"`
+	Debug          bool   `yaml:"-" json:"-"`
 }
 
 func (c *Config) String() string {
