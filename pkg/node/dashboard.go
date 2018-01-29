@@ -4,6 +4,7 @@ import (
 	"container/list"
 	"encoding/json"
 	"fmt"
+	"github.com/donkeysharp/gocho/assets"
 	"github.com/donkeysharp/gocho/pkg/config"
 	"net/http"
 )
@@ -42,6 +43,7 @@ func nodesHandler(nodeList *list.List) func(http.ResponseWriter, *http.Request) 
 
 func dashboardServe(conf *config.Config, nodeList *list.List) {
 	dashboardMux := http.NewServeMux()
+	dashboardMux.Handle("/", http.FileServer(assets.AssetFS()))
 	dashboardMux.HandleFunc("/api/config", configHandler(conf))
 	dashboardMux.HandleFunc("/api/nodes", nodesHandler(nodeList))
 
