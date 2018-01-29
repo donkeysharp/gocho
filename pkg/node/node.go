@@ -3,7 +3,6 @@ package node
 import (
 	"container/list"
 	"github.com/donkeysharp/gocho/pkg/config"
-	"net"
 )
 
 const (
@@ -19,9 +18,9 @@ const (
 )
 
 type NodeInfo struct {
-	Id            string `json:"id"`
-	Address       net.IP `json:"-"`
-	WebPort       string `json:"port"`
+	Id            string `json:"nodeId"`
+	Address       string `json:"ipAddress"`
+	WebPort       string `json:"webPort"`
 	LastMulticast int64  `json:"-"`
 }
 
@@ -29,17 +28,15 @@ type Announcer struct {
 	config *config.Config
 }
 
-func (a *Announcer) Start() {
-	nodeList := list.New()
-
+func (a *Announcer) Start(nodeList *list.List) {
 	nodeInfo := &NodeInfo{
 		Id:            a.config.NodeId,
-		Address:       nil,
+		Address:       "",
 		WebPort:       a.config.WebPort,
 		LastMulticast: 0,
 	}
 
 	go announceNode(nodeInfo)
-	go listenForNodes(nodeList, a.config)
+	go listenForNodes(nodeList)
 
 }

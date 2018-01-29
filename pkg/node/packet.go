@@ -34,11 +34,11 @@ func ParseAnnouncePacket(size int, addr *net.UDPAddr, packet []byte) (*NodeInfo,
 	payload := string(packet[len(HEADER)+1:])
 	payload = strings.Trim(payload, "\x00")
 
-	nodeInfo := &NodeInfo{
-		Address: addr.IP,
-	}
+	nodeInfo := &NodeInfo{}
 
 	err := json.Unmarshal([]byte(payload), nodeInfo)
+	nodeInfo.Address = addr.IP.String()
+	nodeInfo.Id = fmt.Sprintf("%s-%s", nodeInfo.Id, nodeInfo.Address)
 	if err != nil {
 		return nil, err
 	}
