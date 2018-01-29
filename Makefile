@@ -5,7 +5,9 @@ build-dev:
 clean:
 	rm -rf dist/*
 
-dist: clean
+dist: clean ui
+	@echo "Generating assets source files"
+	go generate ./...
 	@echo "Building gocho..."
 	go build -o dist/gocho cmd/gocho/gocho.go
 
@@ -17,3 +19,10 @@ start:
 
 test:
 	docker run -it --rm donkeysharp/gocho || true
+
+clean-dashboard:
+	rm -rf assets/assets_gen.go
+
+ui: clean-dashboard
+	cd ui \
+	&& yarn build
