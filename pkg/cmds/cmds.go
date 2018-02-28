@@ -18,10 +18,21 @@ func ConfigureAction(c *cli.Context) error {
 
 func StartAction(c *cli.Context) error {
 	fmt.Println("Starting Gocho Node...")
-	conf, err := config.LoadConfig()
+	conf := &config.Config{}
 	conf.Debug = c.Bool("debug")
-	if err != nil {
-		return cli.NewExitError(err, 1)
+	conf.LocalPort = c.String("local-port")
+	conf.WebPort = c.String("share-port")
+	conf.ShareDirectory = c.String("dir")
+	conf.NodeId = c.String("id")
+
+	if conf.NodeId == "" || conf.ShareDirectory == "" {
+		fmt.Println("Both --dir and --id should be set.")
+		fmt.Println("Checking config file.")
+		var err error
+		conf, err = config.LoadConfig()
+		if err != nil {
+			return cli.NewExitError(err, 1)
+		}
 	}
 
 	fmt.Println("Configuration loaded")
@@ -54,6 +65,28 @@ func New() *cli.App {
 				cli.BoolFlag{
 					Name:  "debug",
 					Usage: "Start gocho in debug mode",
+				},
+				cli.StringFlag{
+					Name:   "id",
+					Usage:  "Node ID that will be shared to other peers",
+					EnvVar: "GOCHO_ID",
+				},
+				cli.StringFlag{
+					Name:   "dir",
+					Usage:  "Directory to share",
+					EnvVar: "GOCHO_DIR",
+				},
+				cli.StringFlag{
+					Name:   "share-port",
+					Usage:  "Port that will be exposed for file sharing",
+					EnvVar: "GOCHO_SHARE_PORT",
+					Value:  "5555",
+				},
+				cli.StringFlag{
+					Name:   "local-port",
+					Usage:  "Port for local dashboard",
+					EnvVar: "GOCHO_LOCAL_PORT",
+					Value:  "1337",
 				},
 			},
 			Action: StartAction,
