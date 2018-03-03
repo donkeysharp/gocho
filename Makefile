@@ -12,6 +12,10 @@ dist: clean ui generate
 generate:
 	go generate cmd/gocho/gocho.go
 
+dist-linux32:
+	@echo "Building gocho for Linux 32bits..."
+	GOOS=linux GOARCH=386 go build -o dist/gocho-linux32 cmd/gocho/gocho.go
+
 dist-win32:
 	@echo "Building gocho for Windows 32bits..."
 	GOOS=windows GOARCH=386 go build -o dist/gocho-win32.exe cmd/gocho/gocho.go
