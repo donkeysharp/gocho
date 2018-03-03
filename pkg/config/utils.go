@@ -40,11 +40,6 @@ func getDefaultConfig() (*Config, error) {
 		return nil, err
 	}
 
-	userHome, err := homedir.Dir()
-	if err != nil {
-		return nil, err
-	}
-	defaultDirectory := fmt.Sprintf("%s%c%s", userHome, os.PathSeparator, "public")
 	defaultWebPort := "5555"
 	defaultLocalPort := "1337"
 	defaultNodeId := randomdata.SillyName()
@@ -54,7 +49,7 @@ func getDefaultConfig() (*Config, error) {
 	}
 
 	config := &Config{
-		ShareDirectory: defaultDirectory,
+		ShareDirectory: "",
 		WebPort:        defaultWebPort,
 		LocalPort:      defaultLocalPort,
 		NodeId:         defaultNodeId,
