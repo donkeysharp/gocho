@@ -100,7 +100,7 @@ func interceptorHandler(next http.Handler) http.Handler {
 			OriginalWriter: w,
 			IndexBuffer:    bytes.NewBuffer(nil),
 		}
-		// r.Header.Del("If-Modified-Since")
+		r.Header.Del("If-Modified-Since")
 		next.ServeHTTP(interceptor, r)
 
 		if interceptor.IndexBuffer.Len() > 0 {
