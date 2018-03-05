@@ -60,12 +60,12 @@ func listenForNodes(nodeList *list.List) {
 		}
 
 		nodeInfo, err := ParseAnnouncePacket(size, udpAddr, packet)
-		fmt.Printf("Received multicast packet from %s Id: %s\n", udpAddr.String(), nodeInfo.Id)
 
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
+		fmt.Printf("Received multicast packet from %s Id: %s\n", udpAddr.String(), nodeInfo.Id)
 
 		go announcedNodeHandler(nodeInfo, nodeList)
 	}
