@@ -6,6 +6,23 @@ Gocho let's you share a chosen directory with others on the same local network w
 <!-- Image of dashboard -->
 ![alt Gocho dashboard](docs/gocho-dashboard.gif)
 
+## Install
+[Download the latest release](https://github.com/donkeysharp/gocho/releases) for your operating system. Currently the next operating systems are supported:
+
+* GNU/Linux 32 bits
+* GNU/Linux 64 bits
+* OSX
+* Windows 32 bits
+* Windows 64 bits
+
+Download, unzip the file and add it to your path or a directory that is already in your system's path.
+
+**Example unix-like**
+
+    $ unzip gocho_0.1.0_darwin.zip
+    $ mv gocho /usr/bin
+    $ gocho --help
+
 ## Instructions
 Currently Gocho needs to be executed from the command line in order to start sharing.
 
@@ -49,12 +66,3 @@ Flag | Description
 
 <!-- gocho using flags -->
 ![alt Gocho flags](docs/gocho-start.gif)
-
-## Install
-Download the latest release for your operating system. Currently the next operating systems are supported:
-
-* GNU/Linux 32 bits
-* GNU/Linux 64 bits
-* OSX
-* Windows 32 bits
-* Windows 64 bits
