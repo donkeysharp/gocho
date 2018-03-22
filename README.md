@@ -68,4 +68,4 @@ Flag | Description
 ![alt Gocho flags](docs/gocho-start.gif)
 
 ## License
-Licensed under the MIT License. See the [LICENSE](LICENSE)) file for more details.
+Licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
