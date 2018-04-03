@@ -3,6 +3,8 @@ Gocho - Local Network File Sharing
 
 Gocho let's you share a chosen directory with others on the same local network without the need to setup Samba or any other settings that are specific to a operating system. It provides a local dashboard that you can access from your browser to discover what others are sharing without the need to know other's IP addresses.
 
+Run Gocho, browse to [localhost:1337](http://localhost:1337) and see what others are sharing!
+
 <!-- Image of dashboard -->
 ![alt Gocho dashboard](docs/gocho-dashboard.gif)
 
