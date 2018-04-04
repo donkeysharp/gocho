@@ -69,5 +69,8 @@ Flag | Description
 <!-- gocho using flags -->
 ![alt Gocho flags](docs/gocho-start.gif)
 
+## Contributing
+If you want to help and contribute code don't forget to check the [Building document](docs/building.md) in order to have your environment ready for contributing.
+
 ## License
 Licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
