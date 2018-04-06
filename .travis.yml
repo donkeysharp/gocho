@@ -1,0 +1,23 @@
+language: go
+install: true
+sudo: required
+
+before_install:
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - sudo apt-get update
+  - sudo apt-get install apt-transport-https -y
+  - curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+  - sudo apt-get install yarn -y -qq
+
+cache:
+  yarn: true
+
+go: "1.10"
+
+script:
+  - go get -u -v github.com/jteeuwen/go-bindata/...
+  - cd ui
+  - yarn install
+  - cd ..
+  - make dist
