@@ -1,7 +1,7 @@
 Gocho - Local Network File Sharing
 ==================================
 
-Gocho let's you share a chosen directory with others on the same local network without the need to setup Samba or any other settings that are specific to a operating system. It provides a local dashboard that you can access from your browser to discover what others are sharing without the need to know other's IP addresses.
+Gocho allows you to share a chosen directory with others on the same local network, without the need to setup Samba or OS-oriented settings. It provides a local dashboard which you can access through your browser, to discover what others are sharing without knowing other's IP addresses.
 
 Run Gocho, browse to [localhost:1337](http://localhost:1337) and see what others are sharing!
 
@@ -13,7 +13,7 @@ Run Gocho, browse to [localhost:1337](http://localhost:1337) and see what others
 > If you want to help and contribute don't forget to check the [Building document](docs/building.md) in order to have your environment ready.
 
 ## Install
-[Download the latest release](https://github.com/donkeysharp/gocho/releases) for your operating system. Currently the next operating systems are supported:
+[Download the latest release](https://github.com/donkeysharp/gocho/releases) for your operating system. Currently the followingt operating systems are being supported:
 
 * GNU/Linux 32 bits
 * GNU/Linux 64 bits
@@ -30,9 +30,11 @@ Download, unzip the file and add it to your path or a directory that is already 
     $ gocho --help
 
 ## Instructions
-Currently Gocho needs to be executed from the command line in order to start sharing.
+Gocho needs to be executed using the command line in order to initiate the sharing.
 
-There are two ways to start sharing: specify the settings on a config file or specify the settings using command line flags.
+There are two ways to start sharing:
+1. Specify the settings on a config file
+2. Specify the settings using command line flags.
 
 ### Specify a settings file
 Gocho reads a settings file that is located at `$USER_HOME/.gocho.conf`. The format of the file is as follows:
@@ -50,14 +52,14 @@ If you want Gocho to create this file for you, it's possible to run the configur
 
 Which will ask for the different settings and create a `.gocho.conf` file.
 
-Once settings file is created run the next to start sharing:
+Once settings file is created, run the next to start sharing:
 
     $ gocho start
 
 ![alt Gocho wizard](docs/gocho-configure.gif)
 
 ### Use command line flags
-If you don't want to specify a configuration file or want to share a directory other than the specified on the `.gocho.conf` file, run:
+If you don't want to specify a configuration file, or want to share a directory which is not specified on the `.gocho.conf` file, run:
 
     $ gocho start --dir /some/directory --id my-computer-tmp
 
