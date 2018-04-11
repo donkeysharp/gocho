@@ -2,7 +2,7 @@ VERSION = 0.2.0
 
 build-dev:
 	@echo "Building gocho"
-	go install github.com/donkeysharp/gocho/cmd/gocho
+	go install -i github.com/donkeysharp/gocho/cmd/gocho
 
 clean:
 	rm -rf dist/*
