@@ -8,6 +8,10 @@ Run Gocho, browse to [localhost:1337](http://localhost:1337) and see what others
 <!-- Image of dashboard -->
 ![alt Gocho dashboard](docs/gocho-dashboard.gif)
 
+> **Building The Project:**
+>
+> If you want to help and contribute don't forget to check the [Building document](docs/building.md) in order to have your environment ready.
+
 ## Install
 [Download the latest release](https://github.com/donkeysharp/gocho/releases) for your operating system. Currently the next operating systems are supported:
 
@@ -68,9 +72,6 @@ Flag | Description
 
 <!-- gocho using flags -->
 ![alt Gocho flags](docs/gocho-start.gif)
-
-## Contributing
-If you want to help and contribute code don't forget to check the [Building document](docs/building.md) in order to have your environment ready for contributing.
 
 ## License
 Licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

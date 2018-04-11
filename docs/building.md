@@ -8,13 +8,18 @@ You need these tools installed in order to develop Gocho:
 * NodeJS (ui)
 * GNU Make (for general process building)
 * Go (for main code compilation)
-* go-bindata (for embedding UI inside final binary)
+* go-bindata (for embedding UI inside final binary). 
+
+
+> *Installing go-bindata creates a binary, don't forget to add $GOPATH/bin to your path* It's important that go-bindata is in the path becuase `make generate` &mdash;the command that embeds ui code into binary&mdash; needs it.
 
 ## Service Development
 In order to run Gocho service and start development on it there are some things to consider: the next steps need to be run only the first time if you don't want to modify the UI.
 
+This steps need to be executed in the root directory of the project.
+
 #### Step 1
-Create the UI files e.g. html, javascript and css
+Build the UI files e.g. html, javascript and css.
 
     $ make ui
 
