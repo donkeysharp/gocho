@@ -1,0 +1,31 @@
+{
+    "menus": [
+        {
+            "node_information": "Información del Nodo"
+        },
+        {
+            "discover": "Descubrir"
+        }
+    ],
+    "sections": {
+        "node_information": {
+            "title": "Información del Nodo",
+            "node_settings": "Ajustes del Nodo",
+            "node_id": "ID Nodo",
+            "web_port": "Puerto Web",
+            "dashboard_port": "Puerto Panel de Control",
+            "shared_directory": "Directorio Compartido"
+        },
+        "discover": {
+            "title": "Descubrir",
+            "auto_discovery": "Auto-Descubrir",
+            "no_node_selected": "Ningún nodo seleccionado",
+            "no_nodes_available": "No hay nodos disponibles",
+            "node_id": "ID Nodo",
+            "web_port": "Puerto Web",
+            "URL": "URL",
+            "view_files": "Ver Archivos",
+            "open_in_tab": "Abrir en otra pestaña"
+        }
+    }
+}

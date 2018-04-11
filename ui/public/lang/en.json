@@ -1,0 +1,31 @@
+{
+    "menus": [
+        {
+            "node_information": "Node Information"
+        },
+        {
+            "discover": "Discover"
+        }
+    ],
+    "sections": {
+        "node_information": {
+            "title": "Node Information",
+            "node_settings": "Node Settings",
+            "node_id": "Node ID",
+            "web_port": "Web Port",
+            "dashboard_port": "Dashboard Port",
+            "shared_directory": "Shared Directory"
+        },
+        "discover": {
+            "title": "Discover",
+            "auto_discovery": "Auto-Discovery",
+            "no_node_selected": "No node selected",
+            "no_nodes_available": "No nodes available",
+            "node_id": "Node ID",
+            "web_port": "Web Port",
+            "URL": "URL",
+            "view_files": "View Files",
+            "open_in_tab": "Open in tab"
+        }
+    }
+}
