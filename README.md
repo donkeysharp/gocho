@@ -13,7 +13,7 @@ Run Gocho, browse to [localhost:1337](http://localhost:1337) and see what others
 > If you want to help and contribute don't forget to check the [Building document](docs/building.md) in order to have your environment ready.
 
 ## Install
-[Download the latest release](https://github.com/donkeysharp/gocho/releases) for your operating system. Currently the followingt operating systems are being supported:
+[Download the latest release](https://github.com/donkeysharp/gocho/releases) for your operating system. Currently the following operating systems are being supported:
 
 * GNU/Linux 32 bits
 * GNU/Linux 64 bits
