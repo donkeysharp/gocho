@@ -1,4 +1,4 @@
-Gocho - Local Network File Sharing
+Gocho - Local Network File Sharing [![Build Status](https://travis-ci.org/donkeysharp/gocho.svg?branch=master)](https://travis-ci.org/donkeysharp/gocho)
 ==================================
 
 Gocho allows you to share a chosen directory with others on the same local network, without the need to setup Samba or OS-oriented settings. It provides a local dashboard which you can access through your browser, to discover what others are sharing without knowing other's IP addresses.
