@@ -34,7 +34,7 @@ class SideBar extends Component {
           let className = (index === this.state.currentItem ? 'active' : '');
           return <li className={className} key={index}>
             <a data-index={index}
-              href="javascript:void(0)"
+              href="#/"
               onClick={this.itemClickHandler.bind(this)}>
               {item.name}
             </a>

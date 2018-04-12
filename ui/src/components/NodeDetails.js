@@ -5,7 +5,7 @@ import FormField from './FormField';
 const IframeViewer = ((props) => {
   return <div className="row">
     <div className="col-md-12">
-      <iframe frameBorder="0" className="files" src={props.url} />
+      <iframe frameBorder="0" className="files" src={props.url} title="shared-files" />
     </div>
   </div>
 })
@@ -49,7 +49,7 @@ class NodeDetails extends Component {
         <div className="col-md-12">
           &nbsp;|&nbsp;
           <a
-            href="javascript:void(0)"
+            href="#/"
             onClick={this.onClickHandler.bind(this)} >
             {this.state.displayIframe ? 'Hide files' : 'View files'}
           </a>
