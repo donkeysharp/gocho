@@ -33,7 +33,7 @@ class NodeList extends Component {
           <a
             data-index={index}
             className={className}
-            href="javascript:void(0)"
+            href="#/"
             onClick={this.onClickHandler.bind(this)}>
             {item.nodeId}
           </a>
