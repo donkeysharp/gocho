@@ -1,11 +1,15 @@
 VERSION = 0.2.0
+GOPATH := $(PWD)/build:$(GOPATH)
 
 build-dev:
 	@echo "Building gocho"
+	rm -rf build && mkdir -p build/src/github.com/donkeysharp
+	ln -s $(PWD) $(PWD)/build/src/github.com/donkeysharp/gocho
 	go install -i github.com/donkeysharp/gocho/cmd/gocho
 
 clean:
 	rm -rf dist/*
+	rm -rf build
 
 dist: clean ui generate
 	@echo "Building gocho for Linux x86_64..."
@@ -54,4 +58,5 @@ clean-dashboard:
 
 ui: clean-dashboard
 	cd ui \
+	&& npm install \
 	&& yarn build
