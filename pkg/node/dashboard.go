@@ -7,6 +7,7 @@ import (
 	"github.com/donkeysharp/gocho/assets"
 	"github.com/donkeysharp/gocho/pkg/config"
 	"net/http"
+	"log"
 )
 
 func configHandler(conf *config.Config) func(w http.ResponseWriter, r *http.Request) {
@@ -52,6 +53,10 @@ func dashboardServe(conf *config.Config, nodeList *list.List) {
 	if conf.Debug {
 		address = "0.0.0.0"
 	}
-	fmt.Printf("Starting dashboard at %s\n", address)
-	http.ListenAndServe(fmt.Sprintf("%s:%s", address, conf.LocalPort), dashboardMux)
+
+	fmt.Printf("Starting dashboard at %s:%s\n", address, conf.LocalPort)
+	err := http.ListenAndServe(fmt.Sprintf("%s:%s", address, conf.LocalPort), dashboardMux)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
