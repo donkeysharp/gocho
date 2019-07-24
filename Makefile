@@ -58,5 +58,4 @@ clean-dashboard:
 
 ui: clean-dashboard
 	cd ui \
-	&& npm install \
 	&& yarn build
