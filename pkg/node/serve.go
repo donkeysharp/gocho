@@ -20,6 +20,9 @@ func Serve(conf *config.Config) {
 	go fileServe(conf)
 	go dashboardServe(conf, nodeList)
 
+	// Enhancement. Open the UI app in a browser
+	openUrl("http://localhost:" + conf.LocalPort)
+
 	for {
 		time.Sleep(time.Minute * 15)
 	}
