@@ -3,6 +3,7 @@ import Panel from '../components/Panel';
 import NodeList from '../components/NodeList';
 import NodeDetails from '../components/NodeDetails';
 
+const refreshInterval = 3000;
 
 class Discover extends Component {
   constructor(props) {
@@ -22,7 +23,11 @@ class Discover extends Component {
     })
   }
   componentDidMount() {
-    this.retrieveData()
+    // Refresh the data every 3 secs
+    this.refreshData = setInterval(this.retrieveData(), refreshInterval)
+  }
+  componentWillUnmount() {
+    clearInterval(this.refreshData)
   }
   nodeSelectedHandler(index) {
     this.setState({
