@@ -24,7 +24,7 @@ class Discover extends Component {
   }
   componentDidMount() {
     // Refresh the data every 3 secs
-    this.refreshData = setInterval(this.retrieveData(), refreshInterval)
+    this.refreshData = setInterval(this.retrieveData, refreshInterval)
   }
   componentWillUnmount() {
     clearInterval(this.refreshData)
