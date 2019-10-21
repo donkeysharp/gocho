@@ -6,12 +6,17 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0"
+    "react-scripts": "3.2.0",
+    "react-i18next": "^10.13.1",
+    "i18next": "^17.2.0",
+    "i18next-browser-languagedetector": "^4.0.0",
+    "i18next-xhr-backend": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && rm build/static/js/*.map && rm build/static/css/*.map && rm build/service-worker.js && rm build/asset-manifest.json",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": {}
 }

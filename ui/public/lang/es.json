@@ -19,12 +19,14 @@
         "discover": {
             "title": "Descubrir",
             "auto_discovery": "Auto-Descubrir",
+            "node_details": "Detalles del nodo",
             "no_node_selected": "Ningún nodo seleccionado",
             "no_nodes_available": "No hay nodos disponibles",
             "node_id": "ID Nodo",
             "web_port": "Puerto Web",
             "URL": "URL",
             "view_files": "Ver Archivos",
+            "hide_files": "Ocultar Archivos",
             "open_in_tab": "Abrir en otra pestaña"
         }
     }

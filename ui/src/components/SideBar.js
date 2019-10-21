@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withTranslation } from 'react-i18next';
 
 class SideBar extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class SideBar extends Component {
     }
   }
   render() {
+    const { t } = this.props;
     let className = 'sidebar';
     if (this.props.toggle) {
       className += ' active';
@@ -36,7 +38,7 @@ class SideBar extends Component {
             <a data-index={index}
               href="#/"
               onClick={this.itemClickHandler.bind(this)}>
-              {item.name}
+              {t(item.name)}
             </a>
           </li>
         })}
@@ -45,4 +47,4 @@ class SideBar extends Component {
   }
 }
 
-export default SideBar;
+export default withTranslation()(SideBar);

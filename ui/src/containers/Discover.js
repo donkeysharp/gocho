@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withTranslation } from 'react-i18next';
 import Panel from '../components/Panel';
 import NodeList from '../components/NodeList';
 import NodeDetails from '../components/NodeDetails';
@@ -30,13 +31,14 @@ class Discover extends Component {
     });
   }
   render() {
-    let detailsBody = <span>No node selected</span>
+    const { t } = this.props;
+    let detailsBody = <span>{t('sections.discover.no_node_selected')}</span>
     if (this.state.currentNode !== -1) {
       detailsBody = <NodeDetails
         node={this.state.nodes[this.state.currentNode]}
       />
     }
-    return <Panel title="Auto-Discovery">
+    return <Panel title={t("sections.discover.auto_discovery")}>
       <div className="row">
         <div className="col-md-3">
           <NodeList
@@ -51,4 +53,4 @@ class Discover extends Component {
   }
 }
 
-export default Discover;
+export default withTranslation()(Discover);
