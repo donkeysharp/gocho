@@ -19,12 +19,14 @@
         "discover": {
             "title": "Discover",
             "auto_discovery": "Auto-Discovery",
+            "node_details": "Node Details",
             "no_node_selected": "No node selected",
             "no_nodes_available": "No nodes available",
             "node_id": "Node ID",
             "web_port": "Web Port",
             "URL": "URL",
             "view_files": "View Files",
+            "hide_files": "Hide Files",
             "open_in_tab": "Open in tab"
         }
     }

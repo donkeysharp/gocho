@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
 import SideBar from './components/SideBar';
 import Discover from './containers/Discover';
 import NodeInfo from './containers/NodeInfo';
@@ -9,11 +10,11 @@ class App extends Component {
     super(props);
     this.menu = [
       {
-        name: 'Node Information',
+        name: 'menus.0.node_information',
         component: <NodeInfo />
       },
       {
-        'name': 'Discover',
+        name: 'menus.1.discover',
         component: <Discover />
       }
     ];
@@ -35,8 +36,10 @@ class App extends Component {
     })
   }
   render() {
+    const { t } = this.props;
     return (
       <div className="wrapper">
+        <span>{t("node_information")}</span>
         <SideBar
           toggle={this.state.toggle}
           title="Gocho"
@@ -44,7 +47,7 @@ class App extends Component {
           onMenuSelected={this.menuSelectedHandler.bind(this)} />
         <div className="content-wrapper">
           <nav className="nav">
-            <b>{this.state.title}</b>
+            <b>{t(this.state.title)}</b>
             <button
               type="button"
               className="btn btn-info navbar-btn"
@@ -62,4 +65,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withTranslation()(App);
