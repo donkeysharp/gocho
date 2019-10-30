@@ -14,7 +14,8 @@ i18n
     },
     backend: {
       loadPath: 'lang/{{lng}}.json'
-    }
+    },
+    fallbackLng: 'en'
   });
 
 export default i18n;
